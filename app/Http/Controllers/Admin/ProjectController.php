@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use Faker\Provider\Text;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use phpDocumentor\Reflection\ProjectFactory;
 
 class ProjectController extends Controller
 {
@@ -25,10 +27,11 @@ class ProjectController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * @return View;
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -36,7 +39,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = new Project();
+        $project->name = $request->name;
+        $project->description =  $request->description;
+        $project->save();
+
+        return to_route('projects.index')->with('status', 'Project succesvol toegevoegd');
     }
 
     /**

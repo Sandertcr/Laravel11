@@ -1,14 +1,18 @@
+
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
     <link rel="shortcut icon" href="{{ asset("img/fav.png")  }}" type="image/x-icon">
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
     <link rel="stylesheet" type="text/css" href=" {{ asset("css/style.css") }}">
     <title>Laravel Opdrachten</title>
 </head>
-<body class="bg-gray-100">
+<body class="bg-red-800">
 
 
 <!-- start navbar -->
@@ -103,6 +107,10 @@
                 </div>
             </div>
             <!-- end user -->
+
+            <!--- hi hi hi ha -->
+            <div  action="http://localhost/admin/projects">
+            </div>
 
             <!-- notifcation -->
             <div class="dropdown relative mr-5 md:static">
