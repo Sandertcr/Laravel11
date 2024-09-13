@@ -50,12 +50,12 @@
 
                 @csrf
                 <label class="block text-sm">
-                    <span class="text-gray-700">Name</span>
-                    <input class="bg-gray-600 block rounded w-full p-2 mt-1 focus:border-purple-400
+                    <span class="text-gray-700 font-medium">Name</span>
+                    <input class="bg-green-400 block rounded w-full p-2 mt-1 border-purple-400
                         focus:outline-none focus:shadow-outline-purple form-input
                         @error('name') border-red-600  focus:shadow-outline-red @enderror"
                            name="name" value=" {{ old('name') }}" type="text" required/>
-                    <span class="text-gray-700">Description</span>
+                    <span class="text-gray-500 font-medium">Description</span>
                     <input class="bg-gray-600 block rounded w-full p-2 mt-1 focus:border-purple-400
                         focus:outline-none focus:shadow-outline-purple form-input
                         @error('description') border-red-600  focus:shadow-outline-red @enderror"
@@ -63,7 +63,7 @@
                 </label>
 
 
-                <button class="mt-2 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active: bg-purple-600 hover:bg-purple-700
+                <button class="mt-2 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-indigo-600  rounded border border-transparent rounded-lg active: bg-purple-600 hover:bg-purple-700
 focus:outline-none focus: shadow-outline-purple">Toevoegen</button>
 
 

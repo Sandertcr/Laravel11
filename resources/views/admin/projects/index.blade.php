@@ -16,7 +16,7 @@
                 <!-- bottom -->
                 <div class="mt-3">
                     <h5 class="h3 num-4"></h5>
-                    <p>Projects </p>
+                    <a href=" {{ route("projects.index") }} "> <p>Projecten Overzicht </p> </a>
 
                     <a href=" {{ route("projects.create") }}"> <p> Nieuw Project</p></a>
                 </div>
@@ -64,9 +64,9 @@
                     <tbody class="bg-white divide-y">
                     @foreach($projects as $project)
                         <tr class="text-gray-700">
-                            <td class="px-4 py-3 text-sm" href=" ">{{ $project->id }}</td> <td class="px-4 py-3 text-sm"> {{ $project->name }} </td>
+                            <td class="px-4 py-3 text-sm" ><a href=" {{ route('projects.show', $project->id) }}"> {{ $project->id }} </a></td> <td class="px-4 py-3 text-sm"> {{ $project->name }} </td>
                             <td class="px-4 py-3">
-                                <a href="" class="fad fa-pencil text-xs mr-1"></a>
+                                <a href="  {{ route('projects.edit', $project->id) }} " class="fad fa-pencil text-xs mr-1"></a>
                             </td>
 
                             <td class="px-4 py-3">
