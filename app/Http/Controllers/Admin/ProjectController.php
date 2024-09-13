@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectStoreRequest;
 use App\Models\Project;
 use Faker\Provider\Text;
 use Illuminate\Http\Request;
@@ -37,14 +38,14 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjectStoreRequest $request)
     {
         $project = new Project();
         $project->name = $request->name;
         $project->description =  $request->description;
         $project->save();
 
-        return to_route('projects.index')->with('status', 'Project succesvol toegevoegd');
+        return to_route('projects.index')->with('status', 'Project A valid project name is aangemaakt');
     }
 
     /**
