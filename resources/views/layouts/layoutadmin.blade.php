@@ -491,6 +491,10 @@
 
         @yield("content")
 
+        <h1>
+            Laravel Opdrachten
+        </h1>
+
     </div>
     <!-- end content -->
 
