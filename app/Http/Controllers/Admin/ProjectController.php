@@ -84,11 +84,22 @@ class ProjectController extends Controller
         return to_route('projects.index')->with('status', 'Project '.$project->name.' is gewijzigd');
     }
 
+
+
+    public function delete(Project $project) : View
+    {
+        return view('admin.projects.delete',  compact('project'));
+    }
+
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
     {
         //
+        $project->delete();
+
+        return to_route('projects.index')->with('status', 'Project '.$project->name.' is verwijderd');
     }
 }

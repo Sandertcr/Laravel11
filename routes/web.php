@@ -13,7 +13,7 @@ Route::get('/welcome', function () {
 });
 
 //Projects route
-//Route::get('/admin/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/admin/projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete');
 /*Route::get('/admin/projects/create', [ProjectController::class, 'create'])->name('projects.create');
 Route::post('/admin/projects', [ProjectController::class, 'store'])->name('projects.store');*/
 

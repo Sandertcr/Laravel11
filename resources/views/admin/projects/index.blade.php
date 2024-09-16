@@ -70,7 +70,7 @@
                             </td>
 
                             <td class="px-4 py-3">
-                                <a href="" class="fad fa-trash text-xs mr-1"></a>
+                                <a href="{{ route('projects.delete',['project' => $project->id]) }}" class="fad fa-trash text-xs mr-1"></a>
                             </td>
 
 
