@@ -5,8 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.layoutadmin');
-});
+    return view('layouts.layoutpublic');
+})->name('home');
 
 Route::get('/welcome', function () {
     return view('layouts.app');
@@ -18,6 +18,8 @@ Route::get('/admin/projects/{project}/delete', [ProjectController::class, 'delet
 Route::post('/admin/projects', [ProjectController::class, 'store'])->name('projects.store');*/
 
 Route::resource('admin/projects', ProjectController::class);
+
+Route::get('projects', [App\Http\Controllers\Open\ProjectController::class, 'index'])->name('open.projects.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

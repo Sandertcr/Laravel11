@@ -66,11 +66,11 @@
                         <tr class="text-gray-700">
                             <td class="px-4 py-3 text-sm" ><a href=" {{ route('projects.show', $project->id) }}"> {{ $project->id }} </a></td> <td class="px-4 py-3 text-sm"> {{ $project->name }} </td>
                             <td class="px-4 py-3">
-                                <a href="  {{ route('projects.edit', $project->id) }} " class="fad fa-pencil text-xs mr-1"></a>
+                                <a href="  {{ route('projects.edit', $project->id) }} " class="fad fa-pencil text-xs mr-1"  style="color: greenyellow"></a>
                             </td>
 
                             <td class="px-4 py-3">
-                                <a href="{{ route('projects.delete',['project' => $project->id]) }}" class="fad fa-trash text-xs mr-1"></a>
+                                <a href="{{ route('projects.delete',['project' => $project->id]) }}" class="fad fa-trash text-xs mr-1" style="color: Tomato"></a>
                             </td>
 
 
