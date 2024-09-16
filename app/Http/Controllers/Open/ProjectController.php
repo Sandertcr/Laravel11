@@ -10,7 +10,7 @@ use Illuminate\View\View;
 class ProjectController extends Controller
 {
     public function index(): View {
-        $projects = Project::paginate(8);
+        $projects = Project::paginate(10);
 
         return view('open.projects.index', compact('projects'));
     }
