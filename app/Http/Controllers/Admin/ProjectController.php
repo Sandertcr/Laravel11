@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectStoreRequest;
+use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Project;
 use Faker\Provider\Text;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use phpDocumentor\Reflection\ProjectFactory;
@@ -37,6 +39,8 @@ class ProjectController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(ProjectStoreRequest $request)
     {
@@ -66,10 +70,18 @@ class ProjectController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * @param ProjectUpdateRequest $request
+     * @param Project $project
+     * @return RedirectResponse
      */
-    public function update(Request $request, Project $project)
+    public function update(ProjectUpdateRequest $request, Project $project)
     {
         //
+        $project->name = $request->name;
+        $project->description =  $request->description;
+        $project->save();
+
+        return to_route('projects.index')->with('status', 'Project '.$project->name.' is gewijzigd');
     }
 
     /**

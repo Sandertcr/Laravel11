@@ -50,12 +50,17 @@
         <div class="card-body grid grid-cols-1 gap-6 lg:grid-cols-1">
             <div class="p-4">
                 <form id="form" class="shadow-md rounded-lg px-8 pt-6 pb-8 mb-4"
-                      action="{{ route('projects.update', ['project', $project->id]) }}" method="POST"> @method('PUT')
+                      action="{{ route('projects.update', ['project' => $project->id]) }}" method="POST"> @method('PUT')
                     @csrf
                     <label class="block text-sm">
                         <span class="text-gray-700">Name</span>
                         <input class="bg-gray-100 block rounded w-full p-2 mt-1 focus:border-purple-400 focus:outline-none focus: shadow-outline-purple form-input
 @error('name') border-red-600 focus:border-red-400 focus: shadow-outline-red @enderror" name="name" value="{{ old('name', $project->name) }}" type="text" required/>
+                    </label>
+                    <label class="block text-sm">
+                        <span class="text-gray-700">Description</span>
+                        <input class="bg-gray-100 block rounded w-full p-2 mt-1 focus:border-purple-400 focus:outline-none focus: shadow-outline-purple form-input
+@error('name') border-red-600 focus:border-red-400 focus: shadow-outline-red @enderror" name="description" value="{{ old('description', $project->description) }}" type="text" required/>
                     </label>
                     <button class="mt-2 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-indigo-600 rounded border-transparent active: bg-purple-600 hover:bg-purple-700 focus:outline-none focus: shadow-outline-purple">Wijzigen</button>
                 </form>

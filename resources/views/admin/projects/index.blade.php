@@ -40,7 +40,7 @@
 
         @if(session('status'))
             <div class="card-body">
-                <div class="bg-green-400 text-green-800 rounded-lg shadow-md p-6 pr-10 mb-8"> {{ session('status') }}</div>
+                <div class="bg-green-200 text-green-700 rounded-lg shadow-md p-6 pr-10 mb-8"> {{ session('status') }}</div>
             </div>
         @endif
 
