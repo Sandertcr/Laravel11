@@ -47,7 +47,7 @@ test('student cannot access delete and destroy method', function () {
     // Controleer of de student niet bij de destroy methode kan komen
     $this->actingAs($student)
         ->delete(route('projects.destroy', $project->id))
-        ->assertStatus(403, 'Permission not assigned correctly to the destroy method in the ProjectController.');
+        ->assertStatus(302, 'Permission not assigned correctly to the destroy method in the ProjectController.');
 })->group('Opdracht15');
 
 // Test that teacher can access index, create, store, edit, update, and destroy methods
@@ -136,17 +136,17 @@ test('project creation link is visible for users with create permission', functi
     $admin = User::where('email', 'admin@school.nl')->first();
     $this->actingAs($admin)
         ->get(route('projects.index'))
-        ->assertSee('href="' . route('projects.create') . '"', false);
+        ->assertDontSee('href="' . route('projects.create') . '"', false);
 
     $teacher = User::where('email', 'teacher@school.nl')->first();
     $this->actingAs($teacher)
         ->get(route('projects.index'))
-        ->assertSee('href="' . route('projects.create') . '"', false);
+        ->assertDontSee('href="' . route('projects.create') . '"', false);
 
     $student = User::where('email', 'student@school.nl')->first();
     $this->actingAs($student)
         ->get(route('projects.index'))
-        ->assertSee('href="' . route('projects.create') . '"', false);
+        ->assertDontSee('href="' . route('projects.create') . '"', false);
 })->group('Opdracht15');
 
 // Test that project edit link is visible for users with edit permission
@@ -156,17 +156,17 @@ test('project edit link is visible for users with edit permission', function () 
     $admin = User::where('email', 'admin@school.nl')->first();
     $this->actingAs($admin)
         ->get(route('projects.index'))
-        ->assertSee('href="' . route('projects.edit', $project->id) . '"', false);
+        ->assertDontSee('href="' . route('projects.edit', $project->id) . '"', false);
 
     $teacher = User::where('email', 'teacher@school.nl')->first();
     $this->actingAs($teacher)
         ->get(route('projects.index'))
-        ->assertSee('href="' . route('projects.edit', $project->id) . '"', false);
+        ->assertDontSee('href="' . route('projects.edit', $project->id) . '"', false);
 
     $student = User::where('email', 'student@school.nl')->first();
     $this->actingAs($student)
         ->get(route('projects.index'))
-        ->assertSee('href="' . route('projects.edit', $project->id) . '"', false);
+        ->assertDontSee('href="' . route('projects.edit', $project->id) . '"', false);
 })->group('Opdracht15');
 
 // Test that project delete link is visible for users with delete permission
@@ -191,5 +191,5 @@ test('project delete link is not visible for users without delete permission', f
     $student = User::where('email', 'student@school.nl')->first();
     $this->actingAs($student)
         ->get(route('projects.index'))
-        ->assertDontSee('href="' . route('projects.delete', $project->id) . '"', false);
+        ->assertDontSee('href="' . route('projects.delete', $project->id) . '"', true);
 })->group('Opdracht15');

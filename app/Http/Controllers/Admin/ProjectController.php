@@ -14,6 +14,15 @@ use phpDocumentor\Reflection\ProjectFactory;
 
 class ProjectController extends Controller
 {
+    public function __constructor() {
+        $this->middleware('auth');
+        $this->middleware('permission:index project', ['only' => ['index']]);
+        $this->middleware('permission:show project', ['only' =>  ['show']]);
+        $this->middleware('permission:create project', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit project', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete project', ['only' => ['delete', 'destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

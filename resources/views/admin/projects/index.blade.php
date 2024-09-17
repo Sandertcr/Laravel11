@@ -59,19 +59,26 @@
                         <th class="px-4 py-3">ID</th>
                         <th class="px-4 py-3">Name</th>
                         <th class="px-4 py-3">Edit</th>
+                        @can('delete project')
                         <th class="px-4 py-3">Delete</th> </tr>
+                        @endcan
                     </thead>
                     <tbody class="bg-white divide-y">
                     @foreach($projects as $project)
                         <tr class="text-gray-700">
                             <td class="px-4 py-3 text-sm" ><a href=" {{ route('projects.show', $project->id) }}"> {{ $project->id }} </a></td> <td class="px-4 py-3 text-sm"> {{ $project->name }} </td>
+                            @can('edit project')
                             <td class="px-4 py-3">
                                 <a href="  {{ route('projects.edit', $project->id) }} " class="fad fa-pencil text-xs mr-1"  style="color: greenyellow"></a>
                             </td>
+                            @endcan
 
+                            @can('delete project')
                             <td class="px-4 py-3">
                                 <a href="{{ route('projects.delete',['project' => $project->id]) }}" class="fad fa-trash text-xs mr-1" style="color: Tomato"></a>
+
                             </td>
+                            @endcan
 
 
                         </tr>

@@ -19,12 +19,27 @@
         <a href="#" class="block py-6 w-full text-center md:text-left md:w-auto text-gray-600 no-underline flex justify-center items-center">
             Your Logo
         </a>
+        @guest
         <div class="w-full md:w-auto mb-6 md:mb-0 text-center md:text-right">
             <a href=" {{ route('login') }}" class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Login</a>
         </div>
         <div class="w-full md:w-auto mb-6 md:mb-0 text-center md:text-right">
             <a href=" {{ route('register') }}" class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Register</a>
         </div>
+        @endguest
+
+        @auth
+            <div class="max-w-0.5 md:w-auto mb-6 md:mb-0 text-center md:text-right">
+                <span> {{ Auth::user()->name  }}</span>
+            </div>
+            <div class="w-full md:w-auto mb-6 md:mb-0 text-center md:text-right">
+                <form id="Logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Logout</button>
+                </form>
+
+            </div>
+        @endauth
     </div>
 </header>
 <!-- /header -->
