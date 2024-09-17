@@ -12,6 +12,7 @@ Route::get('/welcome', function () {
     return view('layouts.app');
 });
 
+
 //Projects route
 Route::get('/admin/projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete');
 /*Route::get('/admin/projects/create', [ProjectController::class, 'create'])->name('projects.create');
