@@ -9,9 +9,18 @@ use Database\Seeders\ProjectSeeder;
 use Database\Seeders\TaskSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+
+beforeEach(function () {
+    $this->seed('RoleAndPermissionSeeder');
+    $this->seed('UserSeeder');
+    $this->seed('ActivitySeeder');
+    $this->seed('ProjectSeeder');
+    $this->seed('TaskSeeder');
+});
+
 // Test of de ActivitySeeder werkt
 test('ActivitySeeder runs successfully', function () {
-    $this->seed(ActivitySeeder::class);
+    //$this->seed(ActivitySeeder::class);
 
     $this->assertDatabaseCount('activities', 5);
     $this->assertDatabaseHas('activities', ['id' => 1, 'name' => 'Todo']);
