@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('task', 200);
             $table->date('begindate');
             $table->date('enddate');
-            $table->foreignId('user_id')->constrained()
+            $table->foreignId('user_id')->nullable()->constrained()
                 ->onUpdate('no action')->onDelete('no action');
             $table->foreignId('project_id')->constrained()
                 ->onUpdate('cascade')->onDelete('cascade');

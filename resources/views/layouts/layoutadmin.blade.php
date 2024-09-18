@@ -21,7 +21,7 @@
     <!-- logo -->
     <div class="flex-none w-56 flex flex-row items-center">
         <img src="img/logo.png" class="w-10 flex-none">
-        <strong class="capitalize ml-1 flex-1">cleopatra</strong>
+        <strong class="capitalize ml-1 flex-1"> Website</strong>
 
         <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
             <i class="fad fa-list-ul"></i>
@@ -57,10 +57,13 @@
                         <img class="w-full h-full object-cover" src="img/user.svg" >
                     </div>
 
-                    <div class="ml-2 capitalize flex ">
-                        <h1 class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none">moeSaid</h1>
-                        <i class="fad fa-chevron-down ml-2 text-xs leading-none"></i>
-                    </div>
+                    @auth
+                        <div class="ml-2 capitalize flex ">
+                            <h1 class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none"> {{ Auth::user()->name }}</h1>
+                            <i class="fad fa-chevron-down ml-2 text-xs leading-none"></i>
+                        </div>
+                    @endauth
+
                 </button>
 
                 <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>

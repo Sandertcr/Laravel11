@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TaskStoreRequest;
 use App\Http\Requests\TaskUpdateRequest;
 use App\Models\Task;
+use Illuminate\View\View;
 
 class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $tasks = Task::with('activity', 'project', 'user')->paginate(15);
+
+        return view('admin.tasks.index', compact('tasks'));
     }
 
     /**
@@ -55,6 +58,10 @@ class TaskController extends Controller
     public function update(TaskUpdateRequest $request, Task $task)
     {
         //
+    }
+
+    public function delete(Task $task) {
+
     }
 
     /**

@@ -30,7 +30,7 @@ test('tasks index page displays correct data', function () {
 
     foreach ($tasks as $task) {
         $response->assertSee((string) $task->id);
-        $response->assertSee(Str::limit($task->task, 50));
+        $response->assertSee(Str::limit($task->task, 350));
         $response->assertSee($task->begindate);
         $response->assertSee($task->enddate ? $task->enddate : '');
         $response->assertSee($task->user ? $task->user->name : 'N/A');

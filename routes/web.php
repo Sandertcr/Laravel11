@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use \Illuminate\Auth\Middleware\Authorize;
@@ -25,8 +26,12 @@ Route::group(['middleware' => ['role:student|teacher|admin']], function () {
     Route::resource('admin/projects', ProjectController::class);
     //Route::get('projects', [App\Http\Controllers\Open\ProjectController::class, 'index'])->name('open.projects.index');
 
+    Route::get("/admin/tasks/{task}/delete", [TaskController::class, 'delete'])
+        ->name('tasks.delete');
+
 });
 
+Route::resource('/admin/tasks', TaskController::class);
 
 Route::get('/home', function () {
     return view('layouts.layoutpublic')->with(['status' => "hello world"]);
