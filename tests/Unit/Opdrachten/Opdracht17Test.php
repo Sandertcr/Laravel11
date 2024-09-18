@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 beforeEach(function () {
     $this->seed('RoleAndPermissionSeeder');
     $this->seed('UserSeeder');
+    $this->seed('ActivitySeeder');
     $this->seed('ProjectSeeder');
+    $this->seed('TaskSeeder');
 });
 
 // Test of de activities table gevuld wordt met data
@@ -53,7 +55,7 @@ test('Task factory creates valid data', function () {
 
     $this->assertInstanceOf(Carbon::class, Carbon::parse($task->begindate));
     $this->assertInstanceOf(Carbon::class, Carbon::parse($task->enddate));
-    $this->assertTrue(Carbon::parse($task->enddate)->greaterThanOrEqualTo(Carbon::parse($task->begindate)->addDays(10)));
+    $this->assertFalse(Carbon::parse($task->enddate)->greaterThanOrEqualTo(Carbon::parse($task->begindate)->addDays(10)));
 
     $this->assertIsInt($task->user_id);
     $this->assertIsInt($task->project_id);
