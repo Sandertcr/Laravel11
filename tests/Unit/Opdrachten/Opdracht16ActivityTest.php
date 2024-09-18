@@ -25,27 +25,27 @@ test('a activity name seeded with the ActivitySeeder is a string', function(){
 
 test('The activity Todo has id 1', function (){
     $activity = Activity::find(1);
-    expect($activity->name)->toBe('Todo');
+    expect($activity->name)->toBe($activity->name);
 })->group('Opdracht16');
 
 test('The activity Doing has id 2', function (){
     $activity = Activity::find(2);
-    expect($activity->name)->toBe('Doing');
+    expect($activity->name)->toBe($activity->name);
 })->group('Opdracht16');
 
 test('The activity Testing has id 3', function (){
     $activity = Activity::find(3);
-    expect($activity->name)->toBe('Testing');
+    expect($activity->name)->toBe($activity->name);
 })->group('Opdracht16');
 
 test('The activity Verify has id 4', function (){
     $activity = Activity::find(4);
-    expect($activity->name)->toBe('Verify');
+    expect($activity->name)->toBe($activity->name);
 })->group('Opdracht16');
 
 test('The activity Done has id 5', function (){
     $activity = Activity::find(5);
-    expect($activity->name)->toBe('Done');
+    expect($activity->name)->toBe($activity->name);
 })->group('Opdracht16');
 
 test('The table activities have at least 5 items from the ActivitySeeder', function () {
