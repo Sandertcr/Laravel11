@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Task extends Model
 {
+    protected $guarded = [
+        'task',
+        'begindate',
+        'enddate',
+        'user_id',
+        'project_id',
+        'activity_id'
+    ];
     use HasFactory;
 
     public function project(): BelongsTo {

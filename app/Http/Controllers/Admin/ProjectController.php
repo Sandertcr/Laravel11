@@ -48,7 +48,7 @@ class ProjectController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     * @param ProjectStoreRequest $request
      * @return RedirectResponse
      */
     public function store(ProjectStoreRequest $request)

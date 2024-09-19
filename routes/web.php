@@ -24,14 +24,15 @@ Route::get('/welcome', function () {
 Route::group(['middleware' => ['role:student|teacher|admin']], function () {
     Route::get('/admin/projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete')->middleware(['role:teacher|admin']);
     Route::resource('admin/projects', ProjectController::class);
-    //Route::get('projects', [App\Http\Controllers\Open\ProjectController::class, 'index'])->name('open.projects.index');
 
     Route::get("/admin/tasks/{task}/delete", [TaskController::class, 'delete'])
         ->name('tasks.delete');
 
+
+    Route::resource('/admin/tasks', TaskController::class);
+
 });
 
-Route::resource('/admin/tasks', TaskController::class);
 
 Route::get('/home', function () {
     return view('layouts.layoutpublic')->with(['status' => "hello world"]);
