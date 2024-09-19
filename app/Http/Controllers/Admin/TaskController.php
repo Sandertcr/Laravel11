@@ -72,9 +72,9 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Task $task): View
     {
-        //
+        return view('admin.tasks.show', compact('task'));
     }
 
     /**
