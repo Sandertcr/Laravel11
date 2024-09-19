@@ -80,28 +80,45 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Task $task): View
     {
-        //
+        $users = User::all();
+        $projects = Project::all();
+        $activities = Activity::all();
+        return view('admin.tasks.edit', ['task' => $task, 'users' => $users, 'projects' => $projects, 'activities' => $activities]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update()
+    public function update(TaskStoreRequest $request, Task $task): RedirectResponse
     {
-        //
+        $task->task = $request->task;
+        $task->begindate = $request->begindate;
+        $task->enddate = $request->enddate;
+        $task->project_id = $request->project_id;
+        $task->activity_id = $request->activity_id;
+        $task->user_id = $request->user_id;
+
+        $task->save();
+
+        return to_route('tasks.index')->with('success', 'Taak: Bijgewerkte Taak Beschrijving is bijgewerkt');
     }
 
-    public function delete() {
-
+    public function delete(Task $task): View
+    {
+        $users = User::all();
+        $projects = Project::all();
+        $activities = Activity::all();
+        return view('admin.tasks.delete', ['task' => $task, 'users' => $users, 'projects' => $projects, 'activities' => $activities]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy(Task $task): RedirectResponse
     {
-        //
+        $task->delete();
+        return to_route('tasks.index')->with('status', "Taak: $task->task is verwijderd");
     }
 }
